@@ -1,9 +1,12 @@
-# Executáveis
+
 *.out
 *.exe
 *.o
 *.obj
 
-# Pastas de build
+*
+!*.*
+!*/
+
 build/
 bin/

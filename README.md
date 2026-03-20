@@ -9,7 +9,7 @@ Os exercícios estão organizados em 7 listas (Lista I a Lista VII), cobrindo os
 ## 🗂️ Estrutura
 
 ```
-exercicios-programacao1-c/
+exerciciosprogr1/
 ├── EXERCICIOS LISTA I/
 ├── EXERCICIOS LISTA II/
 ├── EXERCICIOS LISTA III/

@@ -1,12 +1,11 @@
+# Ignorar todos os PDFs
+*.pdf
 
-*.out
+# Ignorar executáveis do Windows e Linux
 *.exe
+*.out
 *.o
-*.obj
 
-*
-!*.*
-!*/
-
-build/
-bin/
+# Ignorar pastas de compilação ou do VS Code
+.vscode/
+build/*.pdf

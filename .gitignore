@@ -9,3 +9,11 @@
 # Ignorar pastas de compilação ou do VS Code
 .vscode/
 build/*.pdf
+
+
+# Ignorar o executável específico que você criou
+exerciciolinha
+
+# Ou, se quiser ignorar QUALQUER arquivo sem extensão (mais avançado, cuidado):
+# *
+# !*.*

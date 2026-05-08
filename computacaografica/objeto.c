@@ -1,10 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "objeto.h"
+
+#define T 30
 
 Objeto carregarObjeto(char nomeArquivo[]) {
     Objeto obj;
     FILE *arquivo;
+	
+	//apenas para conseguir salvar o nome do objeto
+	//a funcao copia o nome do arquivo para struct
+	//evita o erro de ter que atribuir string ao vetor
+	strncpy(obj.nome, nomeArquivo, T-1);
+    obj.nome[T-1] = '\0';
 
     arquivo = fopen(nomeArquivo, "r");
 	
@@ -42,6 +51,7 @@ Objeto carregarObjeto(char nomeArquivo[]) {
 
 //apenas para verificar se coletou as coordenadas corretamente
 void imprimirObjeto(Objeto obj){
+	printf("Objeto: %s\n", obj.nome);
 	printf("Quantidade de vertices: %d\n", obj.qtdVertices);
 	for(int i = 0; i < obj.qtdVertices; i++) {
         printf("Vertice %d: (%.2f, %.2f)\n", i, obj.vertices[i].x, obj.vertices[i].y);

@@ -50,8 +50,8 @@ void escalaObjeto(tObjeto3d *objeto, float escalaX, float escalaY, float escalaZ
 	criaIdentidade4d(temp);
 
 	temp[0][0] = escalaX;
-	temp[1][3] = escalaY;
-	temp[2][3] = escalaZ;
+	temp[1][1] = escalaY;
+	temp[2][2] = escalaZ;
 
 	multMatriz4d(temp, objeto->modelMatrix);
 

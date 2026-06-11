@@ -65,3 +65,14 @@ void multMatriz4d(float **matrizA, float **matrizB){
         }
     }
 }
+
+
+//funcoes necessarias para movimento de camera com coordenadas reais
+
+float subVetores(float a[3], float b[3]){
+	float r[3];
+	for(int i = 0;i < 3;i++){
+		r[i] = a[i] - b[i];
+	}
+	return r;
+}

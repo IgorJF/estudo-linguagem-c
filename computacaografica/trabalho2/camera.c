@@ -2,12 +2,6 @@
 #include <SDL2/SDL.h>
 #include "camera.h"
 
-tCamera3d *criaCamera();
-
-void defineCamera(tCamera3d *camera, float posX, float posY, float posZ, float focX, float focY, float focZ, float cimX, float cimY, float cimZ);
-
-void desalocaCamera(tCamera3d *objeto);
-
 tCamera3d *criaCamera(){
     tCamera3d *camera = (tCamera3d*)malloc(sizeof(tCamera3d));
     camera->posicao = (float*)malloc(3*sizeof(float));

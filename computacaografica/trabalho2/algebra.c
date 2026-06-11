@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 //Ajusta valores de um matriz 4d para uma matriz identidade
 void criaIdentidade4d(float **novaMatriz){
@@ -69,10 +70,33 @@ void multMatriz4d(float **matrizA, float **matrizB){
 
 //funcoes necessarias para movimento de camera com coordenadas reais
 
-float subVetores(float a[3], float b[3]){
-	float r[3];
-	for(int i = 0;i < 3;i++){
+void subVetores(float a[3], float b[3], float r[3]){
+	for(int i = 0; i < 3; i++){
 		r[i] = a[i] - b[i];
 	}
-	return r;
+}
+
+void prodVetorial(float a[3], float b[3], float r[3]){
+	r[0] = (a[1] * b[2]) - (a[2] * b[1]); //x
+	r[1] = (a[2] * b[0]) - (a[0] * b[2]); //y
+	r[2] = (a[0] * b[1]) - (a[1] * b[0]); //z
+}
+
+void normalizaVetor(float a[3], float r[3]){
+	float soma = 0;
+	
+	for(int i = 0; i < 3; i++){
+		soma = soma + (a[i] * a[i]);
+	}
+	float modulo = sqrt(soma);
+	if (modulo > 0.0) {
+		for(int i = 0; i < 3; i++){
+			r[i] = a[i] / modulo;
+		}
+	} 
+	else {
+	    r[0] = 0.0;
+	    r[1] = 0.0;
+	    r[2] = 0.0;
+	}
 }

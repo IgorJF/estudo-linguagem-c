@@ -20,8 +20,6 @@ tCamera3d *criaCamera(){
     return camera;
 }
 
-//criar slides para controlar o angulo da camera
-
 void defineCamera(tCamera3d *camera, float posX, float posY, float posZ, float focX, float focY, float focZ, float cimX, float cimY, float cimZ){
     camera->posicao[0] = posX;
     camera->posicao[1] = posY;
@@ -46,3 +44,5 @@ void desalocaCamera(tCamera3d *objeto){
     free(objeto->viewMatrix);
     free(objeto);
 }
+
+//tivemos dificuldades nessa parte

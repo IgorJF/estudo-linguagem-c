@@ -2,6 +2,9 @@
 #include <SDL2/SDL.h>
 #include "objeto.h"
 #include "algebra.h"
+#include <math.h> //para sen e cos
+
+#define PI 3.1415926535897932384
 
 //Le as informacoes de um arquivo e as carrega num novo objeto alocado
 tObjeto3d *carregaObjeto(char *nomeArquivo){
@@ -39,27 +42,120 @@ tObjeto3d *carregaObjeto(char *nomeArquivo){
 
 //Altera a modelMatrix de um objeto para redimenciona-lo segundo os par�metros escalaX, escalaY e escalaZ
 void escalaObjeto(tObjeto3d *objeto, float escalaX, float escalaY, float escalaZ){
+	float **temp = (float **)malloc(4 * sizeof(float *));
+	for(int i = 0; i < 4; i++){
+		temp[i] = (float *)malloc(4 * sizeof(float)); //entender
+	}
+	
+	criaIdentidade4d(temp);
 
+	temp[0][0] = escalaX;
+	temp[1][3] = escalaY;
+	temp[2][3] = escalaZ;
+
+	multMatriz4d(temp, objeto->modelMatrix);
+
+	for(int i = 0; i < 4; i++){
+		free(temp[i]);
+	}
+	free(temp);
+	
 }
 
 //Altera a modelMatrix de um objeto para translada-lo segundo os par�metros transX, transY e transZ
 void transladaObjeto(tObjeto3d *objeto, float transX, float transY, float transZ){
+	float **temp = (float **)malloc(4 * sizeof(float *));
+	for(int i = 0; i < 4; i++){
+		temp[i] = (float *)malloc(4 * sizeof(float)); //entender
+	}
+	
+	criaIdentidade4d(temp);
 
+	temp[0][3] = transX;
+	temp[1][3] = transY;
+	temp[2][3] = transZ;
+
+	multMatriz4d(temp, objeto->modelMatrix);
+
+	for(int i = 0; i < 4; i++){
+		free(temp[i]);
+	}
+	free(temp);
 }
 
 //Altera a modelMatrix de um objeto para rotaciona-lo ao redor do eixo X segundo o angulo informado
 void rotacionaObjetoEixoX(tObjeto3d *objeto, float angulo){
+	float **temp = (float **)malloc(4 * sizeof(float *));
+	for(int i = 0; i < 4; i++){
+		temp[i] = (float *)malloc(4 * sizeof(float)); //entender
+	}
+	
+	criaIdentidade4d(temp);
 
+	float rad = angulo * (PI/180); //conversao para radianos
+	
+	temp[1][1] = cos(rad);
+	temp[1][2] = -sin(rad);
+	temp[2][1] = sin(rad);
+	temp[2][2] = cos(rad);
+	//a matriz ira girar conforme a multiplicao da modelMatriz com o sen cos, definido em temp
+
+	multMatriz4d(temp, objeto->modelMatrix);
+
+	for(int i = 0; i < 4; i++){
+		free(temp[i]);
+	}
+	free(temp);
 }
 
 //Altera a modelMatrix de um objeto para rotaciona-lo ao redor do eixo Y segundo o angulo informado
 void rotacionaObjetoEixoY(tObjeto3d *objeto, float angulo){
+	float **temp = (float **)malloc(4 * sizeof(float *));
+	for(int i = 0; i < 4; i++){
+		temp[i] = (float *)malloc(4 * sizeof(float)); //entender
+	}
+	
+	criaIdentidade4d(temp);
 
+	float rad = angulo * (PI/180); //conversao para radianos
+	
+	temp[0][0] = cos(rad);
+	temp[0][2] = sin(rad);
+	temp[2][0] = -sin(rad);
+	temp[2][2] = cos(rad);
+	//a matriz ira girar conforme a multiplicao da modelMatriz com o sen cos, definido em temp
+
+	multMatriz4d(temp, objeto->modelMatrix);
+
+	for(int i = 0; i < 4; i++){
+		free(temp[i]);
+	}
+	free(temp);
 }
 
 //Altera a modelMatrix de um objeto para rotaciona-lo ao redor do eixo Z segundo o angulo informado
 void rotacionaObjetoEixoZ(tObjeto3d *objeto, float angulo){
+	float **temp = (float **)malloc(4 * sizeof(float *));
+	for(int i = 0; i < 4; i++){
+		temp[i] = (float *)malloc(4 * sizeof(float)); //entender
+	}
+	
+	criaIdentidade4d(temp);
 
+	float rad = angulo * (PI/180); //conversao para radianos
+	
+	temp[0][0] = cos(rad);
+	temp[0][1] = -sin(rad);
+	temp[1][0] = sin(rad);
+	temp[1][1] = cos(rad);
+	//a matriz ira girar conforme a multiplicao da modelMatriz com o sen cos, definido em temp
+
+	multMatriz4d(temp, objeto->modelMatrix);
+
+	for(int i = 0; i < 4; i++){
+		free(temp[i]);
+	}
+	free(temp);
 }
 
 //Imprime um objeto no terminal

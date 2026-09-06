@@ -1,19 +1,31 @@
-# Ignorar todos os PDFs
 *.pdf
 
-# Ignorar executáveis do Windows e Linux
+# Artefatos de compilacao
 *.exe
 *.out
 *.o
+*.obj
+*.dll
+*.so
+*.a
+*.ilk
+*.pdb
+*.elf
+
+# Executaveis sem extensao (nomes comuns de saida do GCC)
+*/main
+*/app
+*/programa
+*/trabalho_cg
+*/projetocg
+*/cola
+*/bm
+*/bmh
+*/buscabinaria
+*/buscasequencial
+*/forcabruta
+*/kmp
 
 # Ignorar pastas de compilação ou do VS Code
 .vscode/
-build/*.pdf
-
-
-# Ignorar o executável específico que você criou
-exerciciolinha
-
-# Ou, se quiser ignorar QUALQUER arquivo sem extensão (mais avançado, cuidado):
-# *
-# !*.*
+build/

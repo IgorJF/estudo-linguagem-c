@@ -7,9 +7,9 @@ Projeto desenvolvido em C que carrega objetos a partir de arquivos `.dcg`, aplic
 ### Compilação
 
 ```bash
-gcc main.c objeto.c viewport.c -Wall -o main.out -lm
+gcc programa.c objeto-2d.c viewport-2d.c -Wall -o programa.out -lm
 ```
-| `main.c objeto.c viewport.c` - Arquivos-fonte
+| `programa.c objeto-2d.c viewport-2d.c` | Arquivos-fonte |
 | `-Wall` | Ativa avisos |
 | `-o main.out` | Nome do executável |
 | `-lm` | Necessário para biblioteca math.h utilizada |

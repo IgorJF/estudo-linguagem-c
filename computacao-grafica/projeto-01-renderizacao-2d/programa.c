@@ -3,8 +3,8 @@
 
 #include <stdio.h>
 #include <math.h>
-#include "objeto.h"
-#include "viewport.h"
+#include "objeto-2d.h"
+#include "viewport-2d.h"
 
 #define PI 3.14159265
 #define WIDTH 100

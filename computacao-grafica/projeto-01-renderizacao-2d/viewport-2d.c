@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "viewport.h"
-#include "objeto.h"
+#include "viewport-2d.h"
+#include "objeto-2d.h"
 
 #define WIDTH 100
 #define HEIGHT 50

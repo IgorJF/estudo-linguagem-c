@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
-#include "camera.h"
+#include "camera-3d.h"
 
 tCamera3d *criaCamera(){
     tCamera3d *camera = (tCamera3d*)malloc(sizeof(tCamera3d));

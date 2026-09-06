@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "objeto.h"
+#include "objeto-2d.h"
 
 #define T 30
 

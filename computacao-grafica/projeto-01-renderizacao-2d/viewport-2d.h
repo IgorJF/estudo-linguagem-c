@@ -1,6 +1,6 @@
 #ifndef VIEWPORT_H
 #define VIEWPORT_H
-#include "objeto.h"
+#include "objeto-2d.h"
 
 int **criaTela(int larg, int alt);
 void desenhaLinha(int **tela, int x0, int y0, int x1, int y1);

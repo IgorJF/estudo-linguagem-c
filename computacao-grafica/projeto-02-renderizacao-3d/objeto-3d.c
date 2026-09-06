@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
-#include "objeto.h"
-#include "algebra.h"
+#include "objeto-3d.h"
+#include "algebra-matrizes.h"
 #include <math.h> //para sen e cos
 
 #define PI 3.1415926535897932384
